@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Give permission to mvnw
-        run: chmod +x mvnw   # 👈 ये जरूरी है
+        run: chmod +x mvnw
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -25,7 +25,7 @@ jobs:
         run: ./mvnw clean install -DskipTests
 
       - name: Upload JAR file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4   # ✅ FIXED
         with:
           name: spring-boot-app
           path: target/*.jar
