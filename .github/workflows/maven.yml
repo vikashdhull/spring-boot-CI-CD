@@ -12,11 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Give permission to mvnw
+        run: chmod +x mvnw   # 👈 ये जरूरी है
+
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'   # 👈 ये line जरूरी है
-          java-version: '21'
+          distribution: 'temurin'
+          java-version: '17'
 
       - name: Build with Maven
         run: ./mvnw clean install -DskipTests
